@@ -1,0 +1,45 @@
+.header {
+  height: 107.816px;
+  background-color: #ed7200;
+  border-radius: 0 0 45% 45%;
+  fill: #ed7200;
+  filter: drop-shadow(0px 5px 30px rgba(161, 58, 0, 0.75));
+  position: relative;
+  z-index: 2;
+}
+
+.centered-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.centered-content {
+  text-align: center;
+}
+
+.active {
+  width: 100px;
+
+  border-radius: 30px;
+  border: 3px solid var(--w, #fff);
+}
+
+.content {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.button {
+  height: auto;
+  color: #fff;
+}
+.icon-header {
+  color: #ffffff;
+  width: 32px;
+  height: 32px;
+  padding-top: 7px;
+  border: 2px solid var(--w, #fff);
+  border-radius: 50%;
+}
