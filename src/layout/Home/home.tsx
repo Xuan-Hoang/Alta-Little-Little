@@ -3,9 +3,16 @@ import './Home.css';
 import Logo from '../Home/images/logo-home.png';
 import people4 from '../Home/images/people 4.png';
 import iconFrame from '../Home/images/Frame.png';
+import Converted03 from '../Home/images/18451 [Converted]-03 1.png';
+import Converted02 from '../Home/images/18451 [Converted]-02 1.png';
+import Converted04 from '../Home/images/18451 [Converted]-04 1.png';
+import Converted05 from '../Home/images/18451 [Converted]-05 1.png';
+import Converted06 from '../Home/images/18451 [Converted]-06 1.png';
+import Lisa from '../Home/images/Lisa.png';
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import { CalendarOutlined, HeartFilled } from '@ant-design/icons';
+import { Link, useNavigate } from 'react-router-dom';
 const { Content } = Layout;
 const logoStyle: React.CSSProperties = {
   width: '181px',
@@ -32,6 +39,26 @@ const HomePage = () => {
     return '';
   };
 
+  const navigate = useNavigate();
+  const handleTabClick = (tab: string) => {
+    navigate(`/${tab}`);
+  };
+  const [formData, setFormData] = useState({
+    type: '',
+    quantity: '',
+    date: `${formatDate(selectedDate)}`,
+    name: '',
+    phoneNumber: '',
+    email: '',
+  });
+  // const combinedValue = `${formatDate(selectedDate)} ${formData.date}`;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
   return (
     <Content className='home'>
       <section className='section'>
@@ -41,21 +68,34 @@ const HomePage = () => {
               {' '}
               <Image style={logoStyle} src={Logo} />
             </Col>
-            <Col span={7}>
+            <Col span={6}>
               <div className='title'>
                 <h1>Đầm Sen Park</h1>
               </div>
             </Col>
-            <Col span={13}>
-              <div>
-                <img className='people4' src={people4} alt='' />
-              </div>
+            <Col span={3}>
+              {/* hot-air-balloon*/}
+              <img src={Converted03} className='hot-air-balloon03' alt='' />
+            </Col>
+            <Col span={4}>
+              {/* hot-air-balloon*/}
+              <img src={Converted02} className='hot-air-balloon02' alt='' />
+            </Col>
+            <Col span={7}>
+              <img className='people4' src={people4} alt='' />
+            </Col>
+            <Col>
+              <img src={Converted05} className='hot-air-balloon05' alt='' />
             </Col>
           </Row>
         </div>
+
         <div className='content-home'>
           <Row>
-            <Col className='vector' span={15}>
+            {/* hot-air-balloon*/}
+            <img src={Converted06} className='hot-air-balloon06' alt='' />
+
+            <Col className='vector' span={14}>
               <div className='dotted-border'>
                 <div className='text-content'>
                   <p>
@@ -103,6 +143,9 @@ const HomePage = () => {
                   </Row>
                 </div>
               </div>
+              <div className=''>
+                <img src={Lisa} className='lisa' alt='' />
+              </div>
             </Col>
             <Col className='vector2'>
               <svg
@@ -117,7 +160,7 @@ const HomePage = () => {
                 />
               </svg>
             </Col>
-            <Col className='vector3' style={{ width: '425px' }}>
+            <Col className='vector3' style={{ width: '475px' }}>
               <div className='vector3-dotted-border'>
                 <div className='vector3-title'>
                   <div className='vector3-title-item'>
@@ -129,41 +172,48 @@ const HomePage = () => {
                 <div className='vector3-content'>
                   <Form className='vector3-form'>
                     <Form.Item>
-                      <Input id='type' placeholder='Gói gia đình' />
+                      <Input id='type' value={formData.type} onChange={handleChange} placeholder='Gói gia đình' />
                       <HeartFilled className='vector3-icon-heart' />
                     </Form.Item>
                     <Form.Item>
-                      <Input id='quantyti' placeholder='số lượng vé' />
+                      <Input
+                        type='number'
+                        id='quantity'
+                        value={formData.quantity}
+                        onChange={handleChange}
+                        placeholder='Số Vé'
+                      />
                       <Popover
                         content={<DatePicker onChange={handleDateChange} format='DD/MM/YYYY' allowClear={false} />}
                         trigger='click'
                         visible={visible}
-                        // onVisibleChange={setVisible}
                         placement='topRight'>
-                        <Input
-                          id='calendar'
-                          placeholder='Ngày sử dụng'
-                          value={formatDate(selectedDate)}
-                          // onChange={handleDateChange}
-                          // addonAfter={}
-                        />
+                        <Input id='date' placeholder='Ngày sử dụng' value={formatDate(selectedDate)} />
                         <CalendarOutlined className='vector3-icon-calendar' onClick={handleCalendarClick} />
                       </Popover>
                     </Form.Item>
                     <Form.Item>
-                      <Input id='name' placeholder='Họ và Tên' />
+                      <Input id='name' value={formData.name} onChange={handleChange} placeholder='Họ và Tên' />
                     </Form.Item>
                     <Form.Item>
-                      <Input type='number' id='phoneNumber' placeholder='Số Điện Thoại' />
+                      <Input
+                        type='number'
+                        id='phoneNumber'
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                        placeholder='Số Điện Thoại'
+                      />
                     </Form.Item>
                     <Form.Item>
-                      <Input id='email' placeholder='Địa Chỉ Email' />
+                      <Input id='email' value={formData.email} onChange={handleChange} placeholder='Địa Chỉ Email' />
                     </Form.Item>
                     <Form.Item>
                       <div className='button-home'>
-                        <Button id='submit' htmlType='submit'>
-                          <h3 style={{ fontSize: '20px', color: 'white', margin: '5px' }}>Đặt Vé</h3>
-                        </Button>
+                        <Link to={`/checkout?${new URLSearchParams(formData).toString()}`}>
+                          <Button id='submit' htmlType='submit' onClick={() => handleTabClick('checkout')}>
+                            <h3 style={{ fontSize: '20px', color: 'white', margin: '5px' }}>Đặt Vé</h3>
+                          </Button>
+                        </Link>
                       </div>
                     </Form.Item>
                   </Form>
@@ -173,6 +223,9 @@ const HomePage = () => {
           </Row>
         </div>
       </section>
+
+      <img src={Converted03} className='hot-air-balloon032' alt='' />
+      <img src={Converted04} className='hot-air-balloon04' alt='' />
     </Content>
   );
 };
