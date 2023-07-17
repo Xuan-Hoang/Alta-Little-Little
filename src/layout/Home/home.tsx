@@ -1,4 +1,4 @@
-import { Col, Image, Layout, Row, Form, DatePicker, Popover, Input, Button } from 'antd';
+import { Col, Image, Layout, Row, Form, DatePicker, Popover, Input, Button, Select } from 'antd';
 import './Home.css';
 import Logo from '../Home/images/logo-home.png';
 import people4 from '../Home/images/people 4.png';
@@ -11,8 +11,10 @@ import Converted06 from '../Home/images/18451 [Converted]-06 1.png';
 import Lisa from '../Home/images/Lisa.png';
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
+
 import { CalendarOutlined, HeartFilled } from '@ant-design/icons';
-import { Link, useNavigate } from 'react-router-dom';
+
+import { useNavigate } from 'react-router-dom';
 const { Content } = Layout;
 const logoStyle: React.CSSProperties = {
   width: '181px',
@@ -40,18 +42,33 @@ const HomePage = () => {
   };
 
   const navigate = useNavigate();
-  const handleTabClick = (tab: string) => {
-    navigate(`/${tab}`);
+  const [typeTK, setType] = useState<string>('');
+  const TypeTK = (value: string) => {
+    setType(value);
   };
+
+  const handleTabClick = () => {
+    const params = new URLSearchParams({
+      type: typeTK,
+      quantity: formData.quantity,
+      date: formatDate(selectedDate),
+      name: formData.name,
+      phoneNumber: formData.phoneNumber,
+      email: formData.email,
+    });
+    console.log(typeTK);
+    navigate(`/checkout?${params.toString()}`);
+  };
+
   const [formData, setFormData] = useState({
     type: '',
     quantity: '',
-    date: `${formatDate(selectedDate)}`,
+    date: '',
     name: '',
     phoneNumber: '',
     email: '',
   });
-  // const combinedValue = `${formatDate(selectedDate)} ${formData.date}`;
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -172,7 +189,18 @@ const HomePage = () => {
                 <div className='vector3-content'>
                   <Form className='vector3-form'>
                     <Form.Item>
-                      <Input id='type' value={formData.type} onChange={handleChange} placeholder='Gói gia đình' />
+                      {/* <Input id='type' value={formData.type} onChange={handleChange} placeholder='Gói gia đình' /> */}
+                      <Select
+                        size='large'
+                        value={typeTK}
+                        onChange={TypeTK}
+                        placeholder='Gói gia đình'
+                        options={[
+                          { value: 'Gói Gia Đình', label: 'Gói Gia Đình' },
+                          { value: 'Gói...', label: 'Gói...' },
+                        ]}
+                      />
+
                       <HeartFilled className='vector3-icon-heart' />
                     </Form.Item>
                     <Form.Item>
@@ -184,11 +212,16 @@ const HomePage = () => {
                         placeholder='Số Vé'
                       />
                       <Popover
-                        content={<DatePicker onChange={handleDateChange} format='DD/MM/YYYY' allowClear={false} />}
+                        content={<DatePicker onChange={handleDateChange} allowClear={false} />}
                         trigger='click'
                         visible={visible}
                         placement='topRight'>
-                        <Input id='date' placeholder='Ngày sử dụng' value={formatDate(selectedDate)} />
+                        <Input
+                          id='date'
+                          placeholder='Ngày sử dụng'
+                          onChange={handleChange}
+                          value={formatDate(selectedDate)}
+                        />
                         <CalendarOutlined className='vector3-icon-calendar' onClick={handleCalendarClick} />
                       </Popover>
                     </Form.Item>
@@ -209,11 +242,11 @@ const HomePage = () => {
                     </Form.Item>
                     <Form.Item>
                       <div className='button-home'>
-                        <Link to={`/checkout?${new URLSearchParams(formData).toString()}`}>
-                          <Button id='submit' htmlType='submit' onClick={() => handleTabClick('checkout')}>
-                            <h3 style={{ fontSize: '20px', color: 'white', margin: '5px' }}>Đặt Vé</h3>
-                          </Button>
-                        </Link>
+                        {/* <Link to={`/checkout?${new URLSearchParams(formData).toString()}`}> */}
+                        <Button id='submit' htmlType='submit' onClick={() => handleTabClick()}>
+                          <h3 style={{ fontSize: '20px', color: 'white', margin: '5px' }}>Đặt Vé</h3>
+                        </Button>
+                        {/* </Link> */}
                       </div>
                     </Form.Item>
                   </Form>

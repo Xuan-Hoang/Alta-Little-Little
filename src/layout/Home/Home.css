@@ -103,7 +103,7 @@
   border: 10px solid var(--w, #fde8b3);
   border-radius: 27px;
   background-color: #fff6d4;
-  height: 483px;
+  height: 475px;
 }
 .vector2 {
   margin-left: -33px;
@@ -146,8 +146,16 @@
 .ant-form-item {
   height: 40px;
 }
+
 .ant-input {
   font-size: x-large;
+  border-radius: 10px;
+  box-shadow: -1px 3px 3px 0px rgba(178, 91, 11, 0.5) inset;
+}
+:where(.css-dev-only-do-not-override-12i6oh).ant-select.ant-select-in-form-item {
+  width: 80%;
+}
+.ant-select-selector {
   border-radius: 10px;
   box-shadow: -1px 3px 3px 0px rgba(178, 91, 11, 0.5) inset;
 }
@@ -175,6 +183,9 @@
 }
 #type {
   width: 80%;
+  /* font-size: x-large;
+  border-radius: 10px;
+  box-shadow: -1px 3px 3px 0px rgba(178, 91, 11, 0.5) inset; */
 }
 #quantity {
   width: 34%;

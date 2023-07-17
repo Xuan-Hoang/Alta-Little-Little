@@ -7,6 +7,7 @@ import CustomHeader from './layout/Header/header';
 import EventPage from './layout/Event/event';
 import ContactPage from './layout/Contact/contact';
 import CheckoutPage from './layout/Checkout/checkout';
+import CheckoutDetaill from './layout/CheckoutDetaill/checkout_detaill';
 
 const { Content } = Layout;
 
@@ -22,6 +23,7 @@ const App: React.FC = () => {
             <Route path='/event' element={<EventPage />} />
             <Route path='/contact' element={<ContactPage />} />
             <Route path='/checkout' element={<CheckoutPage />} />
+            <Route path='/checkout-detail' element={<CheckoutDetaill />} />
           </Routes>
         </Content>
       </Layout>
