@@ -256,7 +256,6 @@ const HomePage = () => {
           </Row>
         </div>
       </section>
-
       <img src={Converted03} className='hot-air-balloon032' alt='' />
       <img src={Converted04} className='hot-air-balloon04' alt='' />
     </Content>

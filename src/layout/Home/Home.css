@@ -6,29 +6,30 @@
   font-family: Montserrat;
   height: 828px;
 }
-.hot-air-balloon03 {
-  width: 120px;
-  margin-top: 25px;
-}
-.hot-air-balloon032 {
-  width: 100px;
-  height: 150px;
-  margin-top: -300px;
-  margin-left: 1300px;
-}
 .hot-air-balloon02 {
   width: 90px;
   margin-top: -40px;
 }
+.hot-air-balloon03 {
+  width: 120px;
+  margin-top: 2px;
+}
+.hot-air-balloon032 {
+  width: 110px;
+  height: 150px;
+  margin-top: -300px;
+  margin-left: 1355px;
+}
+
 .hot-air-balloon04 {
-  width: 70px;
-  margin-top: -80px;
+  width: 75px;
+  margin-top: -86px;
   margin-left: 430px;
 }
 .hot-air-balloon05 {
   width: 90px;
   margin-top: 190px;
-  margin-left: 25px;
+  margin-left: 35px;
   margin-right: -100px;
 }
 .hot-air-balloon06 {
