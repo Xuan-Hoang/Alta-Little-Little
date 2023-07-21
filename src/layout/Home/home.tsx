@@ -1,14 +1,14 @@
 import { Col, Image, Layout, Row, Form, DatePicker, Popover, Input, Button, Select } from 'antd';
-import './Home.css';
-import Logo from '../Home/images/logo-home.png';
-import people4 from '../Home/images/people 4.png';
-import iconFrame from '../Home/images/Frame.png';
-import Converted03 from '../Home/images/18451 [Converted]-03 1.png';
-import Converted02 from '../Home/images/18451 [Converted]-02 1.png';
-import Converted04 from '../Home/images/18451 [Converted]-04 1.png';
-import Converted05 from '../Home/images/18451 [Converted]-05 1.png';
-import Converted06 from '../Home/images/18451 [Converted]-06 1.png';
-import Lisa from '../Home/images/Lisa.png';
+import '../../assets/css/Home.css';
+import Logo from '../../assets/images/home/logo-home.png';
+import people4 from '../../assets/images/home/people 4.png';
+import iconFrame from '../../assets/images/home/Frame.png';
+import Converted03 from '../../assets/images/home/18451 [Converted]-03 1.png';
+import Converted02 from '../../assets/images/home/18451 [Converted]-02 1.png';
+import Converted04 from '../../assets/images/home/18451 [Converted]-04 1.png';
+import Converted05 from '../../assets/images/home/18451 [Converted]-05 1.png';
+import Converted06 from '../../assets/images/home/18451 [Converted]-06 1.png';
+import Lisa from '../../assets/images/home/Lisa.png';
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
 
@@ -56,7 +56,6 @@ const HomePage = () => {
       phoneNumber: formData.phoneNumber,
       email: formData.email,
     });
-    console.log(typeTK);
     navigate(`/checkout?${params.toString()}`);
   };
 

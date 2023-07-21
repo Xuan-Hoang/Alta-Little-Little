@@ -1,15 +1,21 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Layout, Row, Col, Image, Button } from "antd";
-import "../Header/header.css";
-import Logo from "../Header/images/logo(ngang).png";
-import { PhoneOutlined } from "@ant-design/icons";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Layout, Row, Col, Image, Button } from 'antd';
+import '../../assets/css/header.css';
+import Logo from '../../assets/images/header/logo(ngang).png';
+import { PhoneOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 
 const CustomHeader = () => {
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState(() => {
+    return localStorage.getItem('activeTab') || 'home';
+  });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem('activeTab', activeTab);
+  }, [activeTab]);
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -17,51 +23,48 @@ const CustomHeader = () => {
   };
 
   return (
-    <Header className="header">
+    <Header className='header'>
       <Row>
-        <Col span={8} className="centered-col">
-          <div className="centered-content">
+        <Col span={8} className='centered-col'>
+          <div className='centered-content'>
             <Image src={Logo} />
           </div>
         </Col>
-        <Col span={3} className="centered-col">
-          <div className="centered-content">
+        <Col span={3} className='centered-col'>
+          <div className='centered-content'>
             <Button
-              className={`button ${activeTab === "home" ? "active" : ""}`}
-              onClick={() => handleTabClick("home")}
-              type="text"
-            >
+              className={`button ${activeTab === 'home' ? 'active' : ''}`}
+              onClick={() => handleTabClick('home')}
+              type='text'>
               Trang chủ
             </Button>
           </div>
         </Col>
-        <Col span={3} className="centered-col">
-          <div className="centered-content">
+        <Col span={3} className='centered-col'>
+          <div className='centered-content'>
             <Button
-              className={`button ${activeTab === "event" ? "active" : ""}`}
-              onClick={() => handleTabClick("event")}
-              type="text"
-            >
+              className={`button ${activeTab === 'event' ? 'active' : ''}`}
+              onClick={() => handleTabClick('event')}
+              type='text'>
               Sự kiện
             </Button>
           </div>
         </Col>
-        <Col span={3} className="centered-col">
-          <div className="centered-content">
+        <Col span={3} className='centered-col'>
+          <div className='centered-content'>
             <Button
-              className={`button ${activeTab === "contact" ? "active" : ""}`}
-              onClick={() => handleTabClick("contact")}
-              type="text"
-            >
+              className={`button ${activeTab === 'contact' ? 'active' : ''}`}
+              onClick={() => handleTabClick('contact')}
+              type='text'>
               Liên Hệ
             </Button>
           </div>
         </Col>
         <Col span={6}>
-          <div className="centered-content">
+          <div className='centered-content'>
             <p>
-              <PhoneOutlined className="icon-header" rotate={100} />
-              <span style={{ padding: "5px", color: "white" }}>0985900</span>
+              <PhoneOutlined className='icon-header' rotate={100} />
+              <span style={{ padding: '5px', color: 'white' }}>0985900</span>
             </p>
           </div>
         </Col>
