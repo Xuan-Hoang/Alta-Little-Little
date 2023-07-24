@@ -7,7 +7,16 @@ const EventPage = () => {
     <Content className='event'>
       <section className='event-section'>
         <div className='event-header'>
-          <h1 style={{ fontSize: '70px', color: 'white', textAlign: 'center', marginTop: '30px' }}>Sự kiện</h1>
+          <h1
+            style={{
+              fontSize: '70px',
+              color: 'white',
+              textAlign: 'center',
+              marginTop: '30px',
+              fontFamily: 'iCielKoni',
+            }}>
+            Sự kiện
+          </h1>
         </div>
         <div className='event-content'>
           <ListEvent />

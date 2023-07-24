@@ -86,7 +86,7 @@ const HomePage = () => {
             </Col>
             <Col span={6}>
               <div className='title'>
-                <h1>Đầm Sen Park</h1>
+                <h1 style={{ fontFamily: 'iCielKoni' }}>Đầm Sen Park</h1>
               </div>
             </Col>
             <Col span={3}>

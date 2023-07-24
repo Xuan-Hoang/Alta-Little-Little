@@ -1,9 +1,12 @@
-/* .content {
-  margin-top: -500px;
-} */
 @font-face {
-  font-family: "iCiel Koni";
-  src: url("src/fonts/iCielKoni.otf") format("woff"); /* Đường dẫn tới tệp font phù hợp */
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'iCielKoni';
+  src: url('./assets/fonts/iCielKoni.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat.ttf') format('truetype');
+}
+
+.body {
+  font-family: Montserrat;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Layout } from 'antd';
-
+import './App.css';
 import HomePage from './layout/Home/home';
 import CustomHeader from './layout/Header/header';
 import EventPage from './layout/Event/event';
