@@ -11,10 +11,10 @@ import Converted06 from '../../assets/images/home/18451 [Converted]-06 1.png';
 import Lisa from '../../assets/images/home/Lisa.png';
 import React, { useState } from 'react';
 import dayjs from 'dayjs';
-
 import { CalendarOutlined, HeartFilled } from '@ant-design/icons';
-
 import { useNavigate } from 'react-router-dom';
+import ModalFail from '../../components/modalFail/modal';
+
 const { Content } = Layout;
 const logoStyle: React.CSSProperties = {
   width: '181px',
@@ -40,25 +40,6 @@ const HomePage = () => {
     }
     return '';
   };
-
-  const navigate = useNavigate();
-  const [typeTK, setType] = useState<string>('');
-  const TypeTK = (value: string) => {
-    setType(value);
-  };
-
-  const handleTabClick = () => {
-    const params = new URLSearchParams({
-      type: typeTK,
-      quantity: formData.quantity,
-      date: formatDate(selectedDate),
-      name: formData.name,
-      phoneNumber: formData.phoneNumber,
-      email: formData.email,
-    });
-    navigate(`/checkout?${params.toString()}`);
-  };
-
   const [formData, setFormData] = useState({
     type: '',
     quantity: '',
@@ -73,6 +54,32 @@ const HomePage = () => {
       ...formData,
       [event.target.id]: event.target.value,
     });
+  };
+
+  const navigate = useNavigate();
+  const [typeTK, setType] = useState<string>('options 1');
+  const TypeTK = (value: string) => {
+    setType(value);
+  };
+  const [modalVisible, setModalVisible] = useState(false);
+  const handleModalClose = () => {
+    setModalVisible(false);
+  };
+  const handleTabClick = () => {
+    if (!typeTK || !formData.quantity || !formatDate(selectedDate) || !formData.name || !formData.phoneNumber || !formData.email) {
+      setModalVisible(true);
+    } else {
+      const params = new URLSearchParams({
+        type: typeTK,
+        quantity: formData.quantity,
+        date: formatDate(selectedDate),
+        name: formData.name,
+        phoneNumber: formData.phoneNumber,
+        email: formData.email,
+      });
+      console.log(formatDate(selectedDate));
+      navigate(`/checkout?${params.toString()}`);
+    }
   };
 
   return (
@@ -114,15 +121,9 @@ const HomePage = () => {
             <Col className='vector' span={14}>
               <div className='dotted-border'>
                 <div className='text-content'>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mollis justo. Etiam volutpat
-                    tellus quis risus volutpat, ut posuere ex facilisis.
-                  </p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac mollis justo. Etiam volutpat tellus quis risus volutpat, ut posuere ex facilisis.</p>
 
-                  <p>
-                    Suspendisse iaculis libero lobortis condimentum gravida. Aenean auctor iaculis risus, lobortis
-                    molestie lectus consequat a.
-                  </p>
+                  <p>Suspendisse iaculis libero lobortis condimentum gravida. Aenean auctor iaculis risus, lobortis molestie lectus consequat a.</p>
                 </div>
                 <div className='text-content2'>
                   <Row align='middle'>
@@ -193,34 +194,17 @@ const HomePage = () => {
                         size='large'
                         value={typeTK}
                         onChange={TypeTK}
-                        placeholder='Gói gia đình'
                         options={[
-                          { value: 'Gói Gia Đình', label: 'Gói Gia Đình' },
-                          { value: 'Gói...', label: 'Gói...' },
+                          { value: 'options 1', label: 'Gói Gia Đình' },
+                          { value: 'options 2', label: 'Gói...' },
                         ]}
                       />
-
                       <HeartFilled className='vector3-icon-heart' />
                     </Form.Item>
                     <Form.Item>
-                      <Input
-                        type='number'
-                        id='quantity'
-                        value={formData.quantity}
-                        onChange={handleChange}
-                        placeholder='Số Vé'
-                      />
-                      <Popover
-                        content={<DatePicker onChange={handleDateChange} allowClear={false} />}
-                        trigger='click'
-                        visible={visible}
-                        placement='topRight'>
-                        <Input
-                          id='date'
-                          placeholder='Ngày sử dụng'
-                          onChange={handleChange}
-                          value={formatDate(selectedDate)}
-                        />
+                      <Input type='number' id='quantity' value={formData.quantity} onChange={handleChange} placeholder='Số Vé' />
+                      <Popover content={<DatePicker onChange={handleDateChange} allowClear={false} />} trigger='click' visible={visible} placement='topRight'>
+                        <Input id='date' placeholder='Ngày sử dụng' onChange={handleChange} value={formatDate(selectedDate)} />
                         <CalendarOutlined className='vector3-icon-calendar' onClick={handleCalendarClick} />
                       </Popover>
                     </Form.Item>
@@ -228,18 +212,17 @@ const HomePage = () => {
                       <Input id='name' value={formData.name} onChange={handleChange} placeholder='Họ và Tên' />
                     </Form.Item>
                     <Form.Item>
-                      <Input
-                        type='number'
-                        id='phoneNumber'
-                        value={formData.phoneNumber}
-                        onChange={handleChange}
-                        placeholder='Số Điện Thoại'
-                      />
+                      <Input type='number' id='phoneNumber' value={formData.phoneNumber} onChange={handleChange} placeholder='Số Điện Thoại' />
                     </Form.Item>
                     <Form.Item>
                       <Input id='email' value={formData.email} onChange={handleChange} placeholder='Địa Chỉ Email' />
                     </Form.Item>
                     <Form.Item>
+                      <ModalFail
+                        inputValue={typeTK || formData.email || formData.name || formatDate(selectedDate) || formData.quantity || formData.phoneNumber}
+                        isOpen={modalVisible}
+                        onClose={handleModalClose}
+                      />
                       <div className='button-home'>
                         {/* <Link to={`/checkout?${new URLSearchParams(formData).toString()}`}> */}
                         <Button id='submit' htmlType='submit' onClick={() => handleTabClick()}>
