@@ -140,7 +140,7 @@ const ListEvent: React.FC = () => {
   return (
     <div>
       <Row justify='center' align='middle'>
-        <Col style={{ textAlign: 'center' }} span={1}>
+        <Col span={1}>
           <ButtonLeft onClick={handlePrev} />
         </Col>
         <Col span={22}>
@@ -148,7 +148,7 @@ const ListEvent: React.FC = () => {
             <EventCard key={event.id} event={event} />
           ))}
         </Col>
-        <Col style={{ textAlign: 'center' }} span={1}>
+        <Col span={1}>
           <ButtonRight onClick={handleNext} />
         </Col>
       </Row>

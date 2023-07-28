@@ -15,7 +15,7 @@ const QRCodePage: React.FC<QRCodePageProps> = ({ count }) => {
   const [text] = useState('https://ant.design/');
 
   return (
-    <Space direction='vertical'>
+    <Space direction='vertical' style={{ margin: '0px 10px 0px 5px' }}>
       <div style={{ background: '#FFF', textAlign: 'center', width: '230px', height: '400px' }}>
         <QRCode style={{ marginTop: '20px' }} value={text || '-'} />
         <p style={{ fontSize: '27px', fontWeight: 'bold' }}>ALT20210501</p>

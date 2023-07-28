@@ -7,7 +7,7 @@ import { Event } from '../../../../types/Event';
 const EventCard: React.FC<{ event: Event }> = ({ event }) => {
   return (
     <>
-      <Space direction='vertical' style={{ margin: '0px 10px 0px 10px' }}>
+      <Space direction='vertical' style={{ margin: '0px 20px 0px 15px' }}>
         <div
           style={{
             background: '#FFF',
