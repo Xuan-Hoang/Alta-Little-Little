@@ -189,7 +189,6 @@ const HomePage = () => {
                 <div className='vector3-content'>
                   <Form className='vector3-form'>
                     <Form.Item>
-                      {/* <Input id='type' value={formData.type} onChange={handleChange} placeholder='Gói gia đình' /> */}
                       <Select
                         size='large'
                         value={typeTK}
@@ -224,11 +223,9 @@ const HomePage = () => {
                         onClose={handleModalClose}
                       />
                       <div className='button-home'>
-                        {/* <Link to={`/checkout?${new URLSearchParams(formData).toString()}`}> */}
                         <Button id='submit' htmlType='submit' onClick={() => handleTabClick()}>
                           <h3 style={{ fontSize: '20px', color: 'white', margin: '5px' }}>Đặt Vé</h3>
                         </Button>
-                        {/* </Link> */}
                       </div>
                     </Form.Item>
                   </Form>
