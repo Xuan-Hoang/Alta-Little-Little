@@ -1,0 +1,23 @@
+.event {
+  background-color: #ff8b2c;
+  padding-top: 50px;
+  margin-top: -80px;
+  padding: 30px;
+  font-family: Montserrat;
+  height: 828px;
+}
+.event-section {
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #ffb600;
+  border-radius: 0 0 50px 50px;
+  height: 770px;
+}
+
+.image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}

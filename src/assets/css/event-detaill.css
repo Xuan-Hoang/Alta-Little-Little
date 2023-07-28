@@ -1,0 +1,15 @@
+.event-detaill-header {
+  background-color: #fff6d4;
+  border: 2px solid var(-w #ffb489);
+}
+.event-detaill-content {
+  border: 10px solid var(--w, #fde8b3);
+  background-color: #fff6d4;
+  border-radius: 20px;
+  margin-top: -40px;
+}
+.event-detaill-content-border {
+  border: 2px dashed #ffb489;
+  padding: 40px 30px 10px 30px;
+  border-radius: 20px;
+}
