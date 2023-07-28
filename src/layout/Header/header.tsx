@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Layout, Row, Col, Image, Button } from 'antd';
 import '../../assets/css/header.css';
 import Logo from '../../assets/images/header/logo(ngang).png';
@@ -21,7 +21,10 @@ const CustomHeader = () => {
     setActiveTab(tab);
     navigate(`/${tab}`);
   };
-
+  const location = useLocation();
+  useEffect(() => {
+    setActiveTab(location.pathname === '/' ? 'home' : activeTab);
+  }, [location.pathname, activeTab]);
   return (
     <Header className='header'>
       <Row>
@@ -32,30 +35,21 @@ const CustomHeader = () => {
         </Col>
         <Col span={3} className='centered-col'>
           <div className='centered-content'>
-            <Button
-              className={`button ${activeTab === 'home' ? 'active' : ''}`}
-              onClick={() => handleTabClick('home')}
-              type='text'>
+            <Button className={`button ${activeTab === 'home' ? 'active' : ''}`} onClick={() => handleTabClick('home')} type='text'>
               Trang chủ
             </Button>
           </div>
         </Col>
         <Col span={3} className='centered-col'>
           <div className='centered-content'>
-            <Button
-              className={`button ${activeTab === 'event' ? 'active' : ''}`}
-              onClick={() => handleTabClick('event')}
-              type='text'>
+            <Button className={`button ${activeTab === 'event' ? 'active' : ''}`} onClick={() => handleTabClick('event')} type='text'>
               Sự kiện
             </Button>
           </div>
         </Col>
         <Col span={3} className='centered-col'>
           <div className='centered-content'>
-            <Button
-              className={`button ${activeTab === 'contact' ? 'active' : ''}`}
-              onClick={() => handleTabClick('contact')}
-              type='text'>
+            <Button className={`button ${activeTab === 'contact' ? 'active' : ''}`} onClick={() => handleTabClick('contact')} type='text'>
               Liên Hệ
             </Button>
           </div>
