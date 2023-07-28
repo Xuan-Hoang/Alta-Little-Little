@@ -13,7 +13,7 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import { CalendarOutlined, HeartFilled } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import ModalFail from '../../components/modalFail/modal';
+import ModalFail from '../../components/modalFail-2/modal';
 
 const { Content } = Layout;
 const logoStyle: React.CSSProperties = {
