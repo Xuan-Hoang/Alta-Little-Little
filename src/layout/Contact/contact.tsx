@@ -7,7 +7,7 @@ import Address from '../../assets/Svg/address.svg';
 import Phone from '../../assets/Svg/phone.svg';
 import Email from '../../assets/Svg/email.svg';
 import ModalSuccess from '../../components/modalSuccess/modal';
-import ModalFail from '../../components/modalFail/modal';
+import ModalFail from '../../components/modalFail-2/modal';
 
 const ContactPage = () => {
   const [isModalVisibleSuccess, setIsModalVisibleSuccess] = useState(false);

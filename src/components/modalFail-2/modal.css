@@ -1,0 +1,16 @@
+:where(.css-dev-only-do-not-override-12i6oh).ant-modal .ant-modal-content {
+  background-color: rgba(0, 0, 0, 0); /* Độ trong suốt là 50% */
+  box-shadow: none;
+}
+.checkoutModal1 {
+  height: 50px;
+  background-color: #ff8b15;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+.checkoutModal2 {
+  padding: 10px 40px 20px 40px;
+  background-color: azure;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
