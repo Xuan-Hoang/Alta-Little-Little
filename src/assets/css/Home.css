@@ -2,48 +2,12 @@
   background-color: #ff8b2c;
   padding-top: 50px;
   margin-top: -80px;
-  padding: 30px;
+  padding: 2%;
   font-family: Montserrat;
   height: 830px;
   min-height: 100vh;
 }
-.hot-air-balloon02 {
-  width: 90px;
-  margin-top: -40px;
-}
-.hot-air-balloon03 {
-  width: 120px;
-  margin-top: 2px;
-}
-.hot-air-balloon032 {
-  height: 150px;
-  margin-top: -300px;
-  margin-left: 1350px;
-  margin-right: 0;
-}
 
-.hot-air-balloon04 {
-  width: 75px;
-  margin-top: -86px;
-  margin-left: 430px;
-}
-.hot-air-balloon05 {
-  width: 90px;
-  margin-top: 190px;
-  margin-left: 35px;
-  margin-right: -100px;
-}
-.hot-air-balloon06 {
-  width: 100px;
-  height: 150px;
-  margin-top: -20px;
-  margin-left: -80px;
-  margin-right: 5px;
-}
-
-.converted03 {
-  padding-left: 460px;
-}
 .section {
   padding-top: 80px;
   padding-left: 50px;
@@ -208,4 +172,38 @@
   height: 55px;
   background-color: #bd000b;
   border-radius: 12px;
+}
+.hot-air-balloon02 {
+  width: 90px;
+  margin-top: -40px;
+}
+.hot-air-balloon03 {
+  width: 120px;
+  margin-top: 2px;
+}
+.hot-air-balloon032 {
+  height: 150px;
+  margin-top: -300px;
+  margin-left: 1350px;
+  margin-right: 0;
+}
+
+.hot-air-balloon04 {
+  width: 75px;
+  margin-top: -86px;
+  margin-left: 430px;
+}
+.hot-air-balloon05 {
+  width: 90px;
+  /* width: 55%; */
+  margin-top: 190px;
+  margin-left: 35px;
+  margin-right: -100px;
+}
+.hot-air-balloon06 {
+  width: 100px;
+  height: 150px;
+  margin-top: -20px;
+  margin-left: -80px;
+  margin-right: 5px;
 }

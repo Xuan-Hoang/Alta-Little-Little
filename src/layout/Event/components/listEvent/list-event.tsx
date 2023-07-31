@@ -104,8 +104,8 @@ import ButtonRight from '../../../../components/button/button-right';
 import Loading from '../../../../components/loading/loading';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch } from '../../../../config/store';
-import { fetchEvents, selectEvents, selectLoading } from '../../../../config/eventSlice';
+import { AppDispatch } from '../../../../redux/store';
+import { fetchEvents, selectEvents, selectLoading } from '../../../../redux/eventSlice';
 
 const ListEvent: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();

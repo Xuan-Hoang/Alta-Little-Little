@@ -112,10 +112,10 @@ import { CalendarOutlined } from '@ant-design/icons';
 
 import '../../../../assets/css/event-detaill.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchEventById, selectEventById } from '../../../../config/eventSlice';
+import { fetchEventById, selectEventById } from '../../../../redux/eventSlice';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { AppDispatch, RootState } from '../../../../config/store';
+import { AppDispatch, RootState } from '../../../../redux/store';
 import Loading from '../../../../components/loading/loading';
 
 interface EventDetailPageProps {

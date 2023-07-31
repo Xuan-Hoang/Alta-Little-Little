@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk, RootState } from './store';
-import { firestore } from './firebaseConfig';
+import { firestore } from '../config/firebaseConfig';
 import { Event } from '../types/Event';
 
 interface EventState {
