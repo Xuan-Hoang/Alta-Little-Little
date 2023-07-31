@@ -115,7 +115,6 @@ const HomePage = () => {
 
         <div className='content-home'>
           <Row>
-            {/* hot-air-balloon*/}
             <img src={Converted06} className='hot-air-balloon06' alt='' />
 
             <Col className='vector' span={14}>

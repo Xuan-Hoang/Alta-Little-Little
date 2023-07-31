@@ -17,7 +17,7 @@ const App: React.FC = () => {
     <Router>
       <Layout style={{ minHeight: '100vh' }}>
         <CustomHeader />
-        <Content className='content-container'>
+        <Content>
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/home' element={<HomePage />} />
