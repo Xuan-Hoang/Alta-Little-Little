@@ -5,6 +5,7 @@
   padding: 30px;
   font-family: Montserrat;
   height: 830px;
+  min-height: 100vh;
 }
 .hot-air-balloon02 {
   width: 90px;
@@ -50,6 +51,7 @@
   padding-bottom: 50px;
   background-color: #ffb600;
   border-radius: 0 0 50px 50px;
+  min-height: 95vh;
 }
 
 .logo {

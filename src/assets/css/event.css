@@ -5,6 +5,7 @@
   padding: 30px;
   font-family: Montserrat;
   height: 830px;
+  min-height: 100vh;
 }
 .event-section {
   padding-top: 50px;
@@ -13,6 +14,7 @@
   background-color: #ffb600;
   border-radius: 0 0 50px 50px;
   height: 770px;
+  min-height: 95vh;
 }
 
 .image-wrapper {

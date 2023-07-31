@@ -3,7 +3,7 @@
   padding-top: 50px;
   margin-top: -90px;
   padding: 30px;
-  /* font-family: Montserrat; */
+  min-height: 100vh;
 }
 .checkout-section {
   padding-top: 80px;
@@ -12,6 +12,7 @@
   /* padding-bottom: 50px; */
   background-color: #ffb600;
   border-radius: 0 0 50px 50px;
+  min-height: 95vh;
 }
 .checkout-section-header {
   margin-top: -90px;

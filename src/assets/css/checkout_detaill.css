@@ -12,6 +12,7 @@
   padding-bottom: 50px;
   background-color: #ffb600;
   border-radius: 0 0 50px 50px;
+  min-height: 95vh;
 }
 .slider-content {
   border: 10px solid var(--w, #fde8b3);
