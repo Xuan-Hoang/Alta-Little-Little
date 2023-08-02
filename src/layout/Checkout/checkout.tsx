@@ -1,4 +1,4 @@
-import { Button, Col, Input, InputNumber, Row } from 'antd';
+import { Button, Col, DatePicker, Input, InputNumber, Popover, Row } from 'antd';
 import { Content } from 'antd/es/layout/layout';
 import { CalendarOutlined } from '@ant-design/icons';
 import '../../assets/css/checkout.css';
@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import Trini from '../../assets/images/checkout/Trini_Arnold_Votay1 2.png';
 import CheckoutModal from '../../components/modalFail/modal';
+import dayjs from 'dayjs';
 
 const CheckoutPage = () => {
   const location = useLocation();
@@ -44,7 +45,7 @@ const CheckoutPage = () => {
   };
   //Định Dạng số thẻ
   const [cardName, setCardName] = useState('');
-  const [cardDate, setCardDate] = useState('');
+
   const [cardCVV, setCardCVV] = useState<string | null>(null);
   const [cardNumber, setcarNumber] = useState('');
   const handleCardName = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,9 +54,9 @@ const CheckoutPage = () => {
     setCardName(sanitizedValue);
   };
 
-  const handleCardDate = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setCardDate(event.target.value);
-  };
+  // const handleCardDate = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   setCardDate(event.target.value);
+  // };
 
   const handleCardCVV = (value: string | null) => {
     if (value !== null) {
@@ -69,6 +70,20 @@ const CheckoutPage = () => {
     const formattedValue = sanitizedValue.replace(/(\d{4})/g, '$1 ');
 
     setcarNumber(formattedValue);
+  };
+  //định dạng input chứa ngày tháng
+  const [visible, setVisible] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(null);
+  const [cardDate, setCardDate] = useState<string>('');
+  const handleCalendarClick = () => {
+    setVisible(true);
+  };
+
+  const handleCardDate = (value: dayjs.Dayjs | null, dateString: string) => {
+    setSelectedDate(value);
+    setCardDate(dateString);
+    setVisible(false);
   };
 
   // Hiện thông báo khi lỗi
@@ -174,8 +189,10 @@ const CheckoutPage = () => {
                   </Row>
                   <Row style={{ marginTop: '-30px' }}>
                     <h3>Ngày Hết Hạn</h3>
-                    <Input value={cardDate} onChange={handleCardDate} style={{ width: '85%' }} />
-                    <CalendarOutlined className='vector3-icon-calendar' />
+                    <Input value={cardDate} onChange={(event) => setCardDate(event.target.value)} style={{ width: '85%' }} maxLength={5} />
+                    <Popover content={<DatePicker onChange={handleCardDate} format='MM/YY' allowClear={false} />} trigger='click' visible={visible} placement='topRight'>
+                      <CalendarOutlined className='vector3-icon-calendar' onClick={handleCalendarClick} />
+                    </Popover>
                   </Row>
                   <Row style={{ marginTop: '-30px' }}>
                     <Col>
